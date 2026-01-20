@@ -129,12 +129,11 @@ def kwarg_to_param(params: dict[str, Any]) -> list[str]:
 
     for key, val in params.items():
         key = key.replace("_", "-")
-        match val:
-            case bool() if val:
+        if isinstance(val, bool):
+            if val:
                 cmdline_params.append(f"--{key}")
-            case bool():
+            else:
                 cmdline_params.append(f"--no-{key}")
-            case _:
-                cmdline_params.extend((f"--{key}", str(val)))
-
+        else:
+            cmdline_params.extend((f"--{key}", str(val)))
     return cmdline_params
