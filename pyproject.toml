@@ -24,13 +24,13 @@ dependencies = [
     "aiida-core<3,>=2.7",
     "ase<4.0,>=3.24",
     "voluptuous<1,>=0.15.2",
-    "janus-core<0.9,>=0.8.3",
+    "janus-core>=0.6.2",
     "aiida-workgraph<0.8, >=0.7.6",
 ]
 
 [project.optional-dependencies]
 mace = [
-    "janus-core[mace]"
+    "janus-core>=0.6.2",
 ]
 fpsample = [
     "fpsample<0.4,>=0.3.3",
