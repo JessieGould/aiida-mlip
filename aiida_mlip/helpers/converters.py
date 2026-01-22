@@ -129,6 +129,9 @@ def kwarg_to_param(params: dict[str, Any]) -> list[str]:
 
     for key, val in params.items():
         key = key.replace("_", "-")
+        # Special case: janus uses --model-path instead of --model
+        if key == "model":
+            key = "model-path"
         if isinstance(val, bool):
             if val:
                 cmdline_params.append(f"--{key}")
