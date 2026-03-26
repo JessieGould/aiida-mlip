@@ -53,7 +53,8 @@ def test_geomopt(fixture_sandbox, generate_calc_job, janus_code, model_folder):
         "{'default_dtype': 'float64'}",
         "--minimize-kwargs",
         "{'traj_kwargs': {'filename': 'aiida-traj.xyz'}}",
-        "--write-traj",
+        "--traj",
+        "aiida-traj.xyz",
     ]
 
     retrieve_list = [
@@ -195,7 +196,8 @@ def test_config_overwrite(
         "{'default_dtype': 'float64'}",
         "--minimize-kwargs",
         "{'traj_kwargs': {'filename': 'test-2-traj.xyz'}}",
-        "--write-traj",
+        "--traj",
+        "test-2-traj.xyz",
         "--config",
         "config.yaml",
     ]

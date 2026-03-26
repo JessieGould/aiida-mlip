@@ -119,7 +119,8 @@ class GeomOpt(Singlepoint):  # numpydoc ignore=PR01
 
         geom_opt_cmdline = {
             "minimize-kwargs": minimize_kwargs,
-            "write-traj": True,
+            # Janus CLI expects a trajectory filepath via --traj.
+            "traj": minimize_kwargs["traj_kwargs"]["filename"],
         }
 
         for key in ("opt_cell_fully", "opt_cell_lengths", "fmax", "steps", "pressure"):
